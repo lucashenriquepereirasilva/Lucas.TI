@@ -1,0 +1,23 @@
+{
+  "name": "electrons",
+  "version": "1.0.0",
+  "description": "Electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucashenriquepereirasilva/electron.git"
+  },
+  "author": "Lucas henrique",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucashenriquepereirasilva/electron/issues"
+  },
+  "homepage": "https://github.com/lucashenriquepereirasilva/electron#readme",
+  "devDependencies": {
+    "electron": "^34.2.0"
+  }
+}

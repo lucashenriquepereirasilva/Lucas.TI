@@ -75,6 +75,10 @@ app.on('activate', () => {
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
   })
+
+// reduzir logs
+
+app.commandLine.appendSwitch('log-level', '3')
   
 
   // template do menu

@@ -2,7 +2,7 @@
 
 
 
-const { app, BrowserWindow, nativeTheme ,Menu } = require('electron')
+const { app, BrowserWindow, nativeTheme ,Menu, shell} = require('electron')
 // Janela principal
 let win
 const createWindow = () => {
@@ -38,12 +38,29 @@ const aboutwindow = () => {
 
 }
 
+// Janela secudaria
 
+const childWindow = () => {
+  const father = BrowserWindow.getFocusedWindow()
+  if (father) {
+    const child = new BrowserWindow({
+      width: 640,
+      height: 220,
+      icon: './src/p/img/pc.png',
+      autoHideMenuBar: true,
+      resizable: false,
+      parent: father,
+      modal: true
+      
+    })
+    child.loadFile('./src/views/child.html')
+  }
+}
 
 // iniciar aplicação
 app.whenReady().then(() => {
   createWindow()
-  aboutwindow()
+ // aboutwindow()
 })
 
 
@@ -62,22 +79,84 @@ app.on('window-all-closed', () => {
 
   // template do menu
 
-  const template = [
+  const template =[
     {
-        label: 'arquivo',
-        submenu: [
-            {
-                label:'Sair',
-                click: () => app.quit(),
-                accelerator: 'ALT+F4'
-            }
-        ]
-    },
-    {
-        label: 'Exibir'
-    },
-    {
-        label: 'Ajuda'
-    }
-  ]
+      label:'Cadastrar',
+      submenu: [
+          {
+            label: 'Clientes'
+          },
+          {
+              label: 'Os'
+          },
+          {
+            type:'separator' 
+          },
+          {
+              label: 'Sair',
+              click: () => app.quit(),
+              accelerator: 'ALT+F4'
+          }
   
+      ]      
+      },
+  
+      {
+          label:'Arquivo',
+          submenu: [
+            {
+              label: 'Janela Secundária',
+              click: () => childWindow()
+            },
+              {
+                  label: 'Sair',
+                  click: () => app.quit(),
+                  accelerator: 'ALT+F4'
+              }
+          ]      
+      },
+      {
+          label: 'Exibir',
+          submenu: [
+              {
+                  label:'Recarregar',
+                  role:'reload'
+              },
+              {
+                  label:'Ferramentas do desenvolvedor',
+                  role:'toggleDevTools' /* Exbir a tela de desenvolvimento */
+              },
+              {
+                  type:'separator' /* crua uma linha para separar grupos do submenu */
+              },
+              {
+                  label: 'Aplicar zoom',
+                  role: 'zoomIn'
+              },
+              {
+                  label: 'Reduzir',
+                  role: 'zoomOut'
+              },
+              {
+                  label: 'Restaurar o zoom padrão',
+                  role: 'ResetZoom'
+              }
+          ]      
+      },
+      {
+          label: 'Ajuda',
+          submenu: [
+            {
+              label: 'Docs',
+              click: () => shell.openExternal('https://github.com/lucashenriquepereirasilva/Lucas.TI')
+            },
+            {
+              type:'separator'
+            },
+            {
+              label: 'sobre',
+              click: () => aboutwindow ()
+            } 
+          ]
+      }
+  ]

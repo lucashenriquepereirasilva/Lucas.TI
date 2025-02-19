@@ -1,8 +1,9 @@
 // console.log("processo Principal")
-
+console.log(`Electron: ${process.versions.electron}`)
 
 
 const { app, BrowserWindow, nativeTheme ,Menu, shell} = require('electron')
+const path = require('path');
 // Janela principal
 let win
 const createWindow = () => {
@@ -11,11 +12,13 @@ nativeTheme.themeSource = 'dark'
     width: 800,
     height: 600,
     icon: './src/img/pc.png',
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
    // resizable: false   /* remover a ação de minimizar tela */
   // autoHideMenuBar: true, /* remover a ação de menu tela */
    //minimizable: false,
-   resizable:false
-
+  
  })
 
  // menu personalizado 

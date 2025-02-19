@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!--Titulo que será exibido na janela-->
+    
     <title>Electron</title>
-    <!--Bootstrap-->
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="../p/css/bootstrap.min.css">
-    <!--css personalizado-->
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="../p/css/style.css">
-    <!--impedir a execução de scripts externos ou não autorizados-->
-    <meta http-equiv="content-security-policy" content="script-src 'self'">
+    
+    <!-- Impedir a execução de scripts externos não autorizados -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+
 </head>
 <body>
-    <div class="container">
-        <h1>Hello Electron</h1>
+    <div class="container text-center mt-5">
+        <img src="../img/clientes.png" alt="Cadastro do Cliente" title="Cadastro do Cliente" class="img-fluid">
+        <img src="../img/os.png" alt="Ordem de Serviços" title="Ordem de Serviços" class="img-fluid">
     </div>
 
+    <footer class="text-center mt-4">
+        <p id="dataAtual"></p>
+    </footer>
 
-    <!--Bootstrap-->
+    <!-- Scripts -->
     <script src="../p/js/bootstrap.min.js"></script>
+    <script src="../p/js/script.js"></script>
+    <script src="renderer.js"></script>
 </body>
 </html>

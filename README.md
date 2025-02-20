@@ -1,4 +1,4 @@
-![GitHub License](https://img.shields.io/github/license/lucashenriquepereirasilva/electron)
+![GitHub License](https://img.shields.io/github/license/lucashenriquepereirasilva/Lucas.TI)
 
 
 # ASSIS TI
